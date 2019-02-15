@@ -1,0 +1,20 @@
+<p>Test Version</p>
+
+</br>
+
+<%= link_to "Ajouter un partenaire / une start-up", '/new', method: :get, class: "btn btn-xs btn-primary" %>
+
+</br>
+
+
+  <% Company.all.each do |company| %>
+  <%= company.company_name %>
+  <%= company.company_industry %>
+  <%= company.company_valuation %>
+  <%= company.company_ownership_type %>
+  <%= company.company_comments %>
+  <%= link_to "Voir", company_path(company), class: "btn btn-xs btn-primary" %>
+  <%= link_to "Modifier", edit_company_path(company), class: "btn btn-xs btn-primary" %>
+  <%= link_to "Supprimer ce membre", delete_company_path(company), method: :get, data: { confirm: "Voulez-vous vraiment supprimer ce partneraire ?"}, class: "btn btn-xs btn-danger" %>
+  </br>
+  <% end %>
