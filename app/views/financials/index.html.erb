@@ -1,0 +1,24 @@
+<p>Test Version</p>
+
+</br>
+
+<%= link_to "Ajouter une année financière", new_financial_path, method: :get, class: "btn btn-xs btn-primary" %>
+
+</br>
+
+
+  <% Financial.all.each do |financial| %>
+  <%= financial.company_year %>
+  <%= financial.company_year_income %>
+  <%= financial.company_year_cogs %>
+  <%= financial.company_year_ebitda %>
+  <%= financial.company_year_ebitda_ratio %>
+  <%= financial.company_year_ebit %>
+  <%= financial.company_year_ebit_ratio %>
+  <%= financial.company_year_cagr %>
+  <%= financial.company_id %>
+  <%= link_to "Voir", financial_path(financial), class: "btn btn-xs btn-primary" %>
+  <%= link_to "Modifier", edit_financial_path(financial), class: "btn btn-xs btn-primary" %>
+  <%= link_to "Supprimer ce membre", delete_financial_path(financial), method: :get, data: { confirm: "Voulez-vous vraiment supprimer ce partneraire ?"}, class: "btn btn-xs btn-danger" %>
+  </br>
+  <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_14_185441) do
+ActiveRecord::Schema.define(version: 2019_02_17_214939) do
 
   create_table "companies", force: :cascade do |t|
     t.string "company_name"
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 2019_02_14_185441) do
     t.text "company_comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "financials", force: :cascade do |t|
+    t.integer "company_year"
+    t.float "company_year_income"
+    t.float "company_year_cogs"
+    t.float "company_year_ebitda"
+    t.float "company_year_ebitda_ratio"
+    t.float "company_year_ebit"
+    t.float "company_year_ebit_ratio"
+    t.float "company_year_cagr"
+    t.integer "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_financials_on_company_id"
   end
 
 end

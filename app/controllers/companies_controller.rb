@@ -5,7 +5,7 @@ class CompaniesController < ApplicationController
   def index
     #require_user
     @companies = Company.all
-   end
+  end
 
    def set_company
      @company = Company.find(params[:id])

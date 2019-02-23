@@ -6,4 +6,6 @@ class Company < ApplicationRecord
   validates :company_ownership_type, length: { maximum: 300 }
   validates :company_comments, length: { maximum: 5000 }
 
+  has_many :financials
+
 end
