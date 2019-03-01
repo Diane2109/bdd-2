@@ -3,8 +3,10 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:edit, :update, :show, :destroy]
 
   def index
-    #require_user
+    require_user
+    current_user
     @companies = Company.all
+    @array = []
   end
 
    def set_company
@@ -12,15 +14,17 @@ class CompaniesController < ApplicationController
    end
 
   def new
-    #require_user
+    require_user
     @company = Company.new
+    @financial = Financial.new
   end
 
   def create
-    #require_user
+    require_user
     @company = Company.new(company_params)
-    if @company.save
-      flash[:success] = "#{@company.company_name} a été ajouté.e."
+    @financial = Financial.new(financial_params)
+    if @company.save && @financial.save
+      flash[:success] = "La fiche #{@company.company_name} a été crée."
       redirect_to companies_path
     else
      render 'new'
@@ -28,16 +32,16 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    #require_user
+    require_user
     @company = Company.find(params[:id])
   end
 
   def update
-    #require_user
+    require_user
     @company = Company.find(params[:id])
     if @company.update(company_params)
      flash[:success] = "Nous avons bien mis à jour les informations concernant #{@company.company_name}."
-     redirect_to companies_path
+     redirect_to company_path(@company)
     else
      render 'edit'
     end
@@ -48,7 +52,7 @@ class CompaniesController < ApplicationController
    end
 
   def destroy
-    #require_user
+    require_user
     @company.destroy
     flash[:notice] = "#{@company.company_name} a bien été supprimé."
     redirect_to companies_path

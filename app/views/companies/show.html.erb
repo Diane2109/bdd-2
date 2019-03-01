@@ -1,6 +1,94 @@
-<%= @company.company_name %>
-<%= @company.company_industry %>
-<%= @company.company_valuation %>
-<%= @company.company_ownership_type %>
-<%= @company.company_comments %>
-<%= link_to 'Back', companies_path, class:"btn btn-xs btn-danger" %>
+<div class="container-fluid">
+  </br>
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div>
+      <%= link_to 'Retour', companies_path, class:"btn-link btn-xs" %>
+    </div>
+    <h1 class="h1 mb-0 text-gray-800"><%= @company.company_name %></h1>
+    <div>
+      <%= link_to "Modifier", edit_company_path(@company), class: "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" %>
+      <%= link_to "Supprimer", delete_company_path(@company), method: :get, data: { confirm: "Voulez-vous vraiment supprimer cette fiche ?"}, class: "d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" %>
+    </div>
+  </div>
+
+  </br>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Informations générales</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <div class="d-sm-flex align-items-center justify-content-around">
+          <div class="w-100 p-3">
+            <div class="d-sm-flex align-items-center justify-content-around">
+              <p>Industrie</p><p class="font-weight-bold"><%= @company.company_industry %></p>
+            </div>
+            <div class="d-sm-flex align-items-center justify-content-around">
+              <p>Ownership</p><p class="font-weight-bold"><%= @company.company_ownership_type %></p>
+            </div>
+            <div class="d-sm-flex align-items-center justify-content-around">
+              <p>FTE</p><p class="font-weight-bold"></p>
+            </div>
+          </div>
+          <div class="w-100 p-3">
+            <div class="d-sm-flex align-items-center justify-content-around">
+              <p>Est. EV</p><p class="font-weight-bold"><%= @company.company_valuation %></p>
+            </div>
+            <div class="d-sm-flex align-items-center justify-content-around">
+              <p>Market Cap.</p><p class="font-weight-bold"></p>
+            </div>
+            <div class="d-sm-flex align-items-center justify-content-around">
+              <p>Commentaires</p><p class="font-weight-bold"><%= @company.company_comments %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </br>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Finances de l'entreprise</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Année</th>
+              <th>Revenus ($M)</th>
+              <th>COGS ($M)</th>
+              <th>EBITDA ($M)</th>
+              <th>EBITDA Margin (%)</th>
+              <th>EBIT ($M)</th>
+              <th>EBIT Margin (%)</th>
+              <th>CAGR 3 ans (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @company.financials.all.each do |f| %>
+            <tr>
+              <td><%= f.company_year %></td>
+              <td><%= f.company_year_income %></td>
+              <td><%= f.company_year_cogs %></td>
+              <td><%= f.company_year_ebitda %></td>
+              <td><%= f.company_year_ebitda_ratio %></td>
+              <td><%= f.company_year_ebit %></td>
+              <td><%= f.company_year_ebit_ratio %></td>
+              <td><%= f.company_year_cagr %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <!-- /.container-fluid -->
+</div>

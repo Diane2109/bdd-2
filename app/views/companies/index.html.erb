@@ -1,20 +1,123 @@
-<p>Test Version</p>
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-</br>
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h1 mb-0 text-gray-800">Liste des targets</h1>
+    <div>
+      <%= link_to 'Créer une nouvelle fiche', new_company_path, class: "d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" %>
+    </div>
+  </div>
 
-<%= link_to "Ajouter un partenaire / une start-up", new_company_path, method: :get, class: "btn btn-xs btn-primary" %>
 
-</br>
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Liste des cibles</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>iD</th>
+                    <th>Entreprise</th>
+                    <th>Industrie</th>
+                    <th>EV (M$)</th>
+                    <th>Ownership</th>
+                    <th>Last year</th>
+                    <th>Last Year Revenue (M$)</th>
+                    <th>Last Year EBITDA (M$)</th>
+                    <th>Last Year EBITDA/Revenue</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>iD</th>
+                    <th>Entreprise</th>
+                    <th>Industrie</th>
+                    <th>EV (M$)</th>
+                    <th>Ownership</th>
+                    <th>Last year</th>
+                    <th>Last Year Revenue (M$)</th>
+                    <th>Last Year EBITDA (M$)</th>
+                    <th>Last Year EBITDA/Revenue</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <% @companies.all.each do |f| %>
+                  <tr>
+                    <td><%= f.id %></td>
+                    <td><%= link_to(f) do %>
+                        <strong><%= f.company_name %></strong>
+                      <% end %></td>
+                    <td><%= f.company_industry %></td>
+                    <td><%= f.company_valuation %></td>
+                    <td><%= f.company_ownership_type %></td>
+                    <td><%= f.company_comments %></td>
+                    <% f.financials.each do |g| %>
+                      <% @array << g.company_year %>
+                    <% end %>
+                    <% if @array.max != [] %>
+                      <td><%= @array.max %></td>
+                      <% else %>
+                      <td>N/A</td>
+                    <% end %>
+                    <% f.financials.each do |g| %>
+                      <% if g.company_year == @array.max %>
+                        <% if !g.company_year_income.to_s.nil? %>
+                          <td><%= g.company_year_income %></td>
+                          <% else %>
+                          <td>N/A</td>
+                        <% end %>
+                        <% if !g.company_year_income.to_s.nil? %>
+                          <td><%= g.company_year_ebitda_ratio %> %</td>
+                          <% else %>
+                          <td>N/A</td>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
 
 
-  <% Company.all.each do |company| %>
-  <%= company.company_name %>
-  <%= company.company_industry %>
-  <%= company.company_valuation %>
-  <%= company.company_ownership_type %>
-  <%= company.company_comments %>
-  <%= link_to "Voir", company_path(company), class: "btn btn-xs btn-primary" %>
-  <%= link_to "Modifier", edit_company_path(company), class: "btn btn-xs btn-primary" %>
-  <%= link_to "Supprimer ce membre", delete_company_path(company), method: :get, data: { confirm: "Voulez-vous vraiment supprimer ce partneraire ?"}, class: "btn btn-xs btn-danger" %>
-  </br>
-  <% end %>
+  </div>
+  <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="login.html">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -21,3 +21,7 @@ Financial.create(company_year: 2007, company_year_income: 13.3, company_year_cog
 Financial.create(company_year: 2006, company_year_income: 13.3, company_year_cogs: 80.5, company_year_ebitda: 23.0, company_year_ebitda_ratio: 15.2, company_year_ebit: 12.3, company_year_ebit_ratio: 12.8, company_year_cagr: 3.2, company_id: 1)
 
 Financial.create(company_year: 2010, company_year_income: 13.3, company_year_cogs: 80.5, company_year_ebitda: 23.0, company_year_ebitda_ratio: 15.2, company_year_ebit: 12.3, company_year_ebit_ratio: 12.8, company_year_cagr: 3.2, company_id: 2)
+
+User.create(user_first_name: "Diane", user_last_name: "Bunod", user_email: "d.bunod@gmail.com", password: "123456", user_admin?: true)
+
+User.create(user_first_name: "Jess", user_last_name: "DSR", user_email: "jessie@gmail.com", password: "123456", user_admin?: false)

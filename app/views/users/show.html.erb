@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  </br>
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div>
+      <%= link_to 'Retour', users_path, class:"btn-link btn-xs" %>
+    </div>
+    <h1 class="h1 mb-0 text-gray-800"><%= @user.user_first_name %></h1>
+    <div>
+      <%= link_to "Modifier", edit_user_path(@user), class: "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" %>
+      <%= link_to "Supprimer", delete_user_path(@user), method: :get, data: { confirm: "Voulez-vous vraiment supprimer cette fiche ?"}, class: "d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" %>
+    </div>
+  </div>
+
+  </br>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Informations générales</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <div class="d-sm-flex align-items-center justify-content-around">
+          <div class="w-100 p-3">
+            <div class="d-sm-flex align-items-center justify-content-around">
+              <p>Industrie</p><p class="font-weight-bold"><%= @user.user_first_name %></p>
+            </div>
+            <div class="d-sm-flex align-items-center justify-content-around">
+              <p>Ownership</p><p class="font-weight-bold"><%= @user.user_last_name %></p>
+            </div>
+            <div class="d-sm-flex align-items-center justify-content-around">
+              <p>Ownership</p><p class="font-weight-bold"><%= @user.user_email %></p>
+            </div>
+          </div>
+          <div class="w-100 p-3">
+            <div class="d-sm-flex align-items-center justify-content-around">
+              <p>Est. EV</p><p class="font-weight-bold"><%= @user.user_first_name %></p>
+            </div>
+            <div class="d-sm-flex align-items-center justify-content-around">
+              <p>Market Cap.</p><p class="font-weight-bold"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
