@@ -8,7 +8,10 @@ class UsersController < ApplicationController
   def index
     require_user
     current_user
-    @users = User.all
+    if @current_user.user_admin? == true
+      then @users = User.all
+    else render 'companies#index'
+    end
   end
 
   def show
@@ -40,7 +43,7 @@ class UsersController < ApplicationController
     current_user
     require_user
     @user = User.find(params[:id])
-    if @current_user == @user
+    if @current_user == @user || @current_user.user_admin? == true
     else redirect_to root_path
     end
   end
@@ -48,7 +51,7 @@ class UsersController < ApplicationController
   def update
     require_user
     @user = User.find(params[:id])
-    if @current_user == @user
+    if @current_user == @user || @current_user.user_admin? == true
       if @user.update(user_params)
        flash[:success] = "Nous avons bien mis à jour les informations concernant #{@user.user_first_name} #{@user.user_last_name}."
        redirect_to users_path

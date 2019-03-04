@@ -17,9 +17,9 @@
     <p>Industrie</p>
    </div>
    <div class="col-sm-6">
-    <%= f.select(:company_industry, [['Produits de construction', 'Produits d\'isolation'],
-                                  ['Adhésifs', 'Verres'],
-                                  ['Contrôle de la vibration', 'Autre'],
+    <%= f.select(:company_industry, [['Produits de construction'], ['Produits d\'isolation'],
+                                  ['Adhésifs'], ['Verres'],
+                                  ['Contrôle de la vibration'], ['Autre'],
                                  ],{ :prompt => "Please select"},
                                    { :multiple => false, :size => 1 }
                                  ) %>
@@ -43,91 +43,16 @@
     <%= f.text_field :company_ownership_type, class: "form-control" %>
    </div>
   </div>
-  <div class="form-group">
 
+  <div class="form-group">
+   <div class="control-label col-sm-6">
+    <p>Comments</p>
+   </div>
+   <div class="col-sm-6">
+    <%= f.text_field :company_comments, class: "form-control" %>
+   </div>
   </div>
 
-<% end %>
- </div>
-</div>
-
-
-
-<div class="row form-center">
- <div class="col">
-  <%= form_for(@financial, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-  <div class="form-group">
-   <div class="control-label col-sm-6">
-    <p>Année de l'entreprise</p>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_field :company_year, class: "form-control", autofocus: true %>
-   </div>
-  </div>
-  <div class="form-group">
-   <div class="control-label col-sm-6">
-    <p>Revenus</p>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_field :company_year_income, class: "form-control", autofocus: true %>
-   </div>
-  </div>
-  <div class="form-group">
-   <div class="control-label col-sm-6">
-    <p>COGS</p>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_field :company_year_cogs, class: "form-control", autofocus: true %>
-   </div>
-  </div>
-  <div class="form-group">
-   <div class="control-label col-sm-6">
-    <p>EBITDA</p>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_field :company_year_ebitda, class: "form-control", autofocus: true %>
-   </div>
-  </div>
-  <div class="form-group">
-   <div class="control-label col-sm-6">
-    <p>EBITDA Ratio</p>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_field :company_year_ebitda_ratio, class: "form-control", autofocus: true %>
-   </div>
-  </div>
-  <div class="form-group">
-   <div class="control-label col-sm-6">
-    <p>EBIT</p>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_field :company_year_ebit, class: "form-control", autofocus: true %>
-   </div>
-  </div>
-  <div class="form-group">
-   <div class="control-label col-sm-6">
-    <p>EBIT Ratio</p>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_field :company_year_ebit_ratio, class: "form-control", autofocus: true %>
-   </div>
-  </div>
-  <div class="form-group">
-   <div class="control-label col-sm-6">
-    <p>CAGR</p>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_field :company_year_cagr, class: "form-control", autofocus: true %>
-   </div>
-  </div>
-  <div class="form-group">
-   <div class="control-label col-sm-6">
-    <p>Company ID</p>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_field :company_id, class: "form-control", autofocus: true %>
-   </div>
-  </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit "Sauvegarder l'entreprise", class: "d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" %>

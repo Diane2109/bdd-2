@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Company.create(company_name: "Amazon", company_industry: "Type C", company_valuation: 32, company_ownership_type: "test", company_comments: "test")
+Company.create(company_name: "Amazon", company_industry: "Produits de construction", company_valuation: 32, company_ownership_type: "test", company_comments: "test")
 
-Company.create(company_name: "Google", company_industry: "Type B", company_valuation: 320, company_ownership_type: "test", company_comments: "test")
+Company.create(company_name: "Google", company_industry: "Adhésifs", company_valuation: 320, company_ownership_type: "test", company_comments: "test")
 
-Company.create(company_name: "Slack", company_industry: "Type A", company_valuation: 65, company_ownership_type: "test", company_comments: "test")
+Company.create(company_name: "Slack", company_industry: "Adhésifs", company_valuation: 65, company_ownership_type: "test", company_comments: "test")
 
 Financial.create(company_year: 2009, company_year_income: 138.2, company_year_cogs: 80.5, company_year_ebitda: 23.0, company_year_ebitda_ratio: 15.2, company_year_ebit: 12.3, company_year_ebit_ratio: 12.8, company_year_cagr: 3.2, company_id: 2)
 

@@ -4,7 +4,11 @@
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
-      <%= link_to 'Retour', users_path, class:"btn-link btn-xs" %>
+      <% if @user.user_admin? == true %>
+        <%= link_to 'Retour', users_path, class:"btn-link btn-xs" %>
+      <% else %>
+        <%= link_to 'Retour', root_path, class:"btn-link btn-xs" %>
+      <% end %>
     </div>
     <h1 class="h1 mb-0 text-gray-800"><%= @user.user_first_name %></h1>
     <div>

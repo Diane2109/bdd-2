@@ -8,6 +8,7 @@ class Financial < ApplicationRecord
   validates :company_year_ebit, length: { maximum: 15 }
   validates :company_year_ebit_ratio, length: { maximum: 8 }
   validates :company_year_cagr, length: { maximum: 8 }
+  validates :company_id, presence: true
 
   belongs_to :company
 

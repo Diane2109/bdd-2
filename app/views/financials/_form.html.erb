@@ -5,10 +5,25 @@
   <%= form_for(@financial, :html => {class: "form-horizontal", role: "form"}) do |f| %>
   <div class="form-group">
    <div class="control-label col-sm-6">
-    <p>Année de l'entreprise</p>
+    <p>Année financière à ajouter</p>
    </div>
    <div class="col-sm-6">
-    <%= f.text_field :company_year, class: "form-control", placeholder: "Nom de l'entreprise", autofocus: true %>
+     <%= f.select(:company_year, [[2000], [2001],
+                                   [2002], [2003],
+                                   [2004], [2005],
+                                   [2006], [2007],
+                                   [2008], [2009],
+                                   [2010], [2011],
+                                   [2012], [2013],
+                                   [2014], [2015],
+                                   [2016], [2017],
+                                   [2018], [2019],
+                                   [2020], [2021],
+                                   [2022], [2023],
+                                   [2024], [2025]
+                                  ],{ :prompt => "Please select"},
+                                    { :multiple => false, :size => 1 }
+                                  ) %>
    </div>
   </div>
   <div class="form-group">
@@ -67,20 +82,13 @@
     <%= f.text_field :company_year_cagr, class: "form-control", placeholder: "Nom de l'entreprise", autofocus: true %>
    </div>
   </div>
+
+
   <div class="form-group">
-   <div class="control-label col-sm-6">
-    <p>Company ID</p>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_field :company_id, class: "form-control", placeholder: "Nom de l'entreprise", autofocus: true %>
-   </div>
-  </div>
-  <div class="form-group">
-   <div class="col-sm-offset-2 col-sm-10">
-     <%= f.submit "Sauvegarder l'année", class: 'btn btn-primary btn-lg' %>
-   </div>
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Sauvegarder l'année", class: "d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" %>
+    </div>
   </div>
 <% end %>
-<%= link_to 'Back', financials_path, class:"btn btn-xs btn-danger" %>
  </div>
 </div>

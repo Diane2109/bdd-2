@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     current_user
     require_user
     @companies = Company.all
-
+    @users = User.all
   end
 
   def listing

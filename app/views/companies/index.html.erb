@@ -54,28 +54,37 @@
                     <td><%= f.company_industry %></td>
                     <td><%= f.company_valuation %></td>
                     <td><%= f.company_ownership_type %></td>
-                    <td><%= f.company_comments %></td>
-                    <% f.financials.each do |g| %>
+                    <% f.financials.all.each do |g| %>
                       <% @array << g.company_year %>
                     <% end %>
-                    <% if @array.max != [] %>
-                      <td><%= @array.max %></td>
+                    <% if @array != nil %>
+                      <% @last_year = @array.max.to_i %>
+                      <% if @last_year != 0 %>
+                        <td><%= @last_year %></td>
                       <% else %>
-                      <td>N/A</td>
-                    <% end %>
-                    <% f.financials.each do |g| %>
-                      <% if g.company_year == @array.max %>
-                        <% if !g.company_year_income.to_s.nil? %>
-                          <td><%= g.company_year_income %></td>
-                          <% else %>
-                          <td>N/A</td>
-                        <% end %>
-                        <% if !g.company_year_income.to_s.nil? %>
-                          <td><%= g.company_year_ebitda_ratio %> %</td>
-                          <% else %>
-                          <td>N/A</td>
-                        <% end %>
+                        <td>N/A</td>
                       <% end %>
+                      <% if f.financials.all.find_by_company_year(@last_year) != nil %>
+                        <td><%= f.financials.all.find_by_company_year(@last_year).company_year_income %></td>
+                      <% else %>
+                        <td>N/A</td>
+                      <% end %>
+                      <% if f.financials.first != nil %>
+                        <td><%= f.financials.first.company_year_ebitda %></td>
+                      <% else %>
+                        <td>N/A</td>
+                      <% end %>
+                      <% if f.financials.first != nil %>
+                        <td><%= f.financials.first.company_year_ebitda_ratio %></td>
+                      <% else %>
+                        <td>N/A</td>
+                      <% end %>
+                      <% @array = [] %>
+                      <% @last_year = nil %>
+                    <% else %>
+                      <td>N/A</td>
+                      <td>N/A</td>
+                      <td>N/A</td>
                     <% end %>
                     </tr>
                   <% end %>

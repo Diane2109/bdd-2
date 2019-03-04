@@ -16,14 +16,12 @@ class CompaniesController < ApplicationController
   def new
     require_user
     @company = Company.new
-    @financial = Financial.new
   end
 
   def create
     require_user
     @company = Company.new(company_params)
-    @financial = Financial.new(financial_params)
-    if @company.save && @financial.save
+    if @company.save
       flash[:success] = "La fiche #{@company.company_name} a été crée."
       redirect_to companies_path
     else
@@ -48,6 +46,8 @@ class CompaniesController < ApplicationController
    end
 
    def show
+     require_user
+     current_user
      @company = Company.find(params[:id])
    end
 

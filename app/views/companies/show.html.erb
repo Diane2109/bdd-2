@@ -8,16 +8,16 @@
     </div>
     <h1 class="h1 mb-0 text-gray-800"><%= @company.company_name %></h1>
     <div>
-      <%= link_to "Modifier", edit_company_path(@company), class: "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" %>
-      <%= link_to "Supprimer", delete_company_path(@company), method: :get, data: { confirm: "Voulez-vous vraiment supprimer cette fiche ?"}, class: "d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" %>
+      <%= link_to "Supprimer cette fiche", delete_company_path(@company), method: :get, data: { confirm: "Voulez-vous vraiment supprimer cette fiche ?"}, class: "d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" %>
     </div>
   </div>
 
   </br>
 
   <div class="card shadow mb-4">
-    <div class="card-header py-3">
+    <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
       <h6 class="m-0 font-weight-bold text-primary">Informations générales</h6>
+      <%= link_to "Modifier", edit_company_path(@company), class: "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" %>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -30,7 +30,7 @@
               <p>Ownership</p><p class="font-weight-bold"><%= @company.company_ownership_type %></p>
             </div>
             <div class="d-sm-flex align-items-center justify-content-around">
-              <p>FTE</p><p class="font-weight-bold"></p>
+              <p>FTE</p><p class="font-weight-bold">300+</p>
             </div>
           </div>
           <div class="w-100 p-3">
@@ -38,7 +38,7 @@
               <p>Est. EV</p><p class="font-weight-bold"><%= @company.company_valuation %></p>
             </div>
             <div class="d-sm-flex align-items-center justify-content-around">
-              <p>Market Cap.</p><p class="font-weight-bold"></p>
+              <p>Market Cap.</p><p class="font-weight-bold">300+</p>
             </div>
             <div class="d-sm-flex align-items-center justify-content-around">
               <p>Commentaires</p><p class="font-weight-bold"><%= @company.company_comments %></p>
@@ -52,8 +52,9 @@
     </br>
 
   <div class="card shadow mb-4">
-    <div class="card-header py-3">
+    <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
       <h6 class="m-0 font-weight-bold text-primary">Finances de l'entreprise</h6>
+      <%= link_to "Ajouter une année", new_company_financials_path(@company), class: "d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" %>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -81,6 +82,9 @@
               <td><%= f.company_year_ebit %></td>
               <td><%= f.company_year_ebit_ratio %></td>
               <td><%= f.company_year_cagr %></td>
+              <% if @company.financials.all != nil %>
+                <td><%= link_to "Modifier l'année", edit_financial_path(f), class: "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" %></td>
+              <% end %>
             </tr>
             <% end %>
           </tbody>
