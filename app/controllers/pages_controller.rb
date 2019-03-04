@@ -6,14 +6,6 @@ class PagesController < ApplicationController
     @users = User.all
   end
 
-  def listing
-    current_user
-    require_user
-    @companies = Company.all
-    @financials = Financial.all
-
-  end
-
   def create
   end
 

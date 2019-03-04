@@ -7,6 +7,10 @@ class CompaniesController < ApplicationController
     current_user
     @companies = Company.all
     @array = []
+    respond_to do |format|
+      format.html
+      format.csv { send_data @companies.to_csv, filename: "companies-#{Date.today}.csv" }
+    end
   end
 
    def set_company
