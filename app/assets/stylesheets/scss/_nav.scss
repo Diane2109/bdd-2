@@ -1,0 +1,105 @@
+.nav-link {
+  @include typography(12px, $nav-link-color, 700);
+  @include transition;
+
+  padding: $main-space !important;
+
+  text-transform: uppercase;
+  position: relative;
+  &:before {
+    @include transition;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0px;
+    content: "";
+    height: 2px;
+    background: rgba($main-light, 0);
+  }
+
+  @include hover-focus {
+    text-decoration: none;
+    &:before {
+      background: rgba($main-light, 0.5);
+    }
+  }
+
+  // Disabled state lightens text
+  &.disabled {
+    color: $nav-link-disabled-color;
+  }
+}
+
+.underline {
+  text-decoration: underline;
+  font-weight: normal;
+  color: $primary;
+
+  @include hover-focus {
+    text-decoration: underline;
+    font-weight: normal;
+    color: $primary;
+  }
+  }
+
+
+.nav-tabs {
+  border-bottom: none;
+  background: rgba(0, 0, 0, 0.2);
+
+  .nav-item {
+    margin-bottom: -$nav-tabs-border-width;
+  }
+
+  .nav-link {
+    border: none;
+    @include border-top-radius(0);
+
+    @include hover-focus {
+      border-color: none;
+    }
+
+
+    &.disabled {
+      color: $nav-link-disabled-color;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    color: $main-theme-color;
+    background-color: none;
+  }
+
+  .dropdown-menu {
+    // Make dropdown border overlap tab border
+    margin-top: -$nav-tabs-border-width;
+    // Remove the top rounded corners here since there is a hard edge above the menu
+    @include border-top-radius(0);
+  }
+}
+
+//
+// Pills
+//
+
+.nav-pills {
+  .nav-link {
+    @include border-radius($nav-pills-border-radius);
+  }
+
+  .nav-link.active,
+  .show > .nav-link {
+    color: $nav-pills-link-active-color;
+    background-color: $nav-pills-link-active-bg;
+  }
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba($main-light, 0.5);
+  @include hover-focus {
+    color: $main-light;
+  }
+}

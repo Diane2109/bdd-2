@@ -1,0 +1,26 @@
+@mixin typography(
+  $size,
+  $color: null,
+  $weight: null,
+  $line-height: null,
+  $letter-spacing: null
+) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin transition {
+  transition: all 150ms ease-in-out;
+}
+@mixin theme-box-shadow {
+  box-shadow: $main-shadow;
+}

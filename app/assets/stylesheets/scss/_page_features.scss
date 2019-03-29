@@ -1,0 +1,38 @@
+.features {
+  padding: $main-space * 8 0 $main-space * 4;
+  @include smartphone {
+    padding-top: $main-space * 4;
+  }
+  min-height: auto;
+  position: relative;
+  overflow: visible;
+  &__logo {
+    position: absolute;
+    right: -300px;
+    top: -450px;
+    max-width: 80vw;
+    z-index: -1;
+    @include smartphone {
+      display: none;
+    }
+    @include tablet {
+      display: none;
+    }
+  }
+  &__item {
+    &-list {
+      margin-top: $main-space * 4;
+      li {
+        display: flex;
+        margin-bottom: $main-space * 2;
+      }
+      i {
+        font-size: 40px;
+        color: $main-theme-color;
+        position: relative;
+        top: -9px;
+        margin-right: $main-space;
+      }
+    }
+  }
+}

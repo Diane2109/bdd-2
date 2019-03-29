@@ -1,0 +1,37 @@
+.how-it-works {
+  padding: $main-space * 8 0 $main-space * 4;
+  min-height: auto;
+  @include smartphone {
+    padding-bottom: 0;
+  }
+
+  &__item {
+    position: relative;
+    i {
+      font-size: 60px;
+      color: $main-theme-color;
+      margin: $main-space 0;
+    }
+    &-bg {
+      @include theme-box-shadow;
+      background: $main-light;
+      padding: $main-space * 2;
+      border-radius: $main-border-radius;
+      border-top-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    &-number {
+      background: $main-light;
+      border: 1px solid $main-theme-color;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: $main-theme-color;
+      font-weight: 700;
+      line-height: 40px;
+      position: absolute;
+      left: 15px;
+      top: 0;
+    }
+  }
+}

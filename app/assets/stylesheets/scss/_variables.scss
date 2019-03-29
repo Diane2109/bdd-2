@@ -1,0 +1,125 @@
+$main-space: 16px;
+$font-x-small: 12px;
+$font-small: 14px;
+$font-default: 16px;
+
+$main-theme-color: #4a00ed;
+$main-theme-color-secondary: #00e9c9;
+$main-dark: #141414;
+$main-light: #fff;
+$main-gray: #f2f6fb;
+$main-medium-gray: #dee2e6;
+$dark-gray: #999;
+$body-bg: #fff;
+$transparent: rgba(0, 0, 0, 0);
+$nav-link-color: $main-dark;
+$main-border: 1px solid rgba($main-theme-color, 0.1);
+$main-shadow: 0 0 50px rgba(20, 20, 20, 0.1);
+
+// CARDS & ACCORDION
+$card-bg: $main-light;
+$card-border: none;
+$card-border-bottom: 1px solid rgba($main-theme-color, 0.2);
+$card-shadow: none;
+$card-header-bg: $main-light;
+$card-footer-bg: $main-light;
+$card-header-border-bottom: none;
+$accordion-radius: 20px;
+$accordion-shadow: $main-shadow;
+$accordion-border-bottom: 1px solid rgba($main-theme-color, 0.2);
+// INPUTS - .form-control
+$input-text: $main-dark;
+$input-placeholder: $main-theme-color;
+$input-disable-text: $dark-gray;
+$input-disable-placeholder: $main-gray;
+$input-border-color: $transparent;
+$input-bottom-border-color: rgba($main-theme-color, 0.2);
+$input-border-radius: 0;
+$input-background: $transparent;
+$input-padding: 20px 0 20px 0;
+$input-margin: 0 0 $main-space * 3 0;
+
+// STYLE FOR FORM TAG
+$form-background: $main-light;
+$form-padding: $main-space * 3 $main-space * 2;
+$form-shadow: $main-shadow;
+$form-border-radius: $main-shadow;
+$form-radius: 10px;
+// DROPDOWN
+$dropdown-color: $main-light;
+$dropdown-link-color: rgba($main-light, 0.7);
+$dropdown-bg: $main-dark;
+$dropdown-border-radius: 5px;
+$dropdown-link-hover-color: $main-light;
+$dropdown-link-hover-bg: rgba($main-light, 0.1);
+$dropdown-link-disabled-color: rgba($main-light, 0.2);
+$dropdown-link-active-color: $main-light;
+$dropdown-link-active-bg: $main-theme-color;
+$dropdown-border-color: rgba($main-light, 0.1);
+
+// BUTTONS
+$primary: $main-theme-color;
+$secondary: $main-theme-color-secondary;
+$font-sm: 12px;
+$font-md: 14px;
+$font-lg: 18px;
+
+// P A D D I N G S
+$padding-base: 15px;
+$padding-medium: 30px;
+$padding-large: 60px;
+$padding-x-large: 90px;
+
+// M A R G I N S
+$margin-base: 15px;
+$margin-medium: 30px;
+$margin-large: 60px;
+$margin-x-large: 90px;
+
+// F O N T S
+$h1-font-size: 64px;
+$h2-font-size: 48px;
+$h3-font-size: 36px;
+$h4-font-size: 24px;
+$h5-font-size: 18px;
+$h6-font-size: 12px;
+
+$main-font: "Montserrat", sans-serif;
+$main-font-secondary: "Montserrat", sans-serif;
+$main-border-radius: 20px;
+$text-color: #141414;
+
+$blue: $main-theme-color;
+$blue: #007bff !default;
+$indigo: #008bed !default;
+$purple: #4a00ed !default;
+$pink: #ed008b !default;
+$red: #ed002d !default;
+$orange: #fd7e14 !default;
+$yellow: #edea00 !default;
+$green: #00ed54 !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
+
+$timeline-number-of-items: 8;
+
+@mixin main-gradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00e5ed+0,4a00ed+100 */
+  background: rgb(0, 229, 237); /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    rgba(0, 229, 237, 1) 0%,
+    rgba(74, 0, 237, 1) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(0, 229, 237, 1) 0%,
+    rgba(74, 0, 237, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 229, 237, 1) 0%,
+    rgba(74, 0, 237, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5ed', endColorstr='#4a00ed',GradientType=0 ); /* IE6-9 */
+}

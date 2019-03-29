@@ -1,0 +1,33 @@
+.home {
+  &__hero {
+    padding: $main-space * 10 0 0 0;
+    min-height: 100vh;
+
+    box-sizing: border-box;
+    overflow: visible;
+    &-image-section {
+      position: relative;
+      z-index: 1;
+    }
+    &-text-section {
+      position: relative;
+      z-index: 2;
+      margin-bottom: $main-space * 10;
+      @include smartphone {
+        margin-bottom: 0;
+      }
+    }
+    &-img {
+      width: 400px;
+      position: relative;
+      z-index: 2;
+    }
+    &-bg {
+      width: 800px;
+      left: -170px;
+      bottom: -200px;
+      position: absolute;
+      z-index: 1;
+    }
+  }
+}

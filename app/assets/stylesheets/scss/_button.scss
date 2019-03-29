@@ -1,0 +1,42 @@
+
+.btn-default {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: $main-theme-color;
+  font-size: 12px;
+  font-weight: 700;
+}
+.btn {
+  text-transform: capitalize;
+  font-weight: 700;
+  padding: 12px 30px;
+  &-primary {
+    color: $main-light;
+  }
+  &-secondary {
+    color: $main-light;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: $secondary;
+  }
+  &-sm {
+    font-size: $font-sm;
+  }
+  &-md {
+    font-size: $font-md;
+  }
+  &-lg {
+    font-size: $font-lg;
+  }
+}
+
+button.close,
+.close {
+  background: $main-light;
+  color: $main-theme-color;
+  cursor: pointer;
+  font-size: 30px !important;
+  font-weight: normal;
+  opacity: 1;
+  padding: $padding-base;
+  z-index: 10;
+}

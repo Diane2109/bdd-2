@@ -1,0 +1,62 @@
+.pricing {
+  padding: 0 0 $main-space * 8;
+
+  &-box {
+    background: $main-light;
+    transition: all 400ms ease-in-out;
+    transform: scale(1);
+    border-radius: $main-border-radius;
+    .icon {
+      margin: $margin-medium 0;
+      color: $main-theme-color;
+      font-size: 30px;
+      display: block;
+      float: left;
+      width: 100%;
+    }
+    ul {
+      margin-top: $margin-medium;
+      margin-bottom: $margin-medium;
+
+      li {
+        padding: $padding-base 0;
+        border-bottom: 1px solid rgba($main-light, 0.1);
+
+        &:first-child {
+          border-top: 1px solid $main-theme-color;
+        }
+      }
+    }
+    &-featured {
+      @include main-gradient;
+      color: $main-light;
+      .icon {
+        color: $main-light;
+      }
+      .btn {
+        color: $main-light;
+      }
+      ul li:first-child {
+        border-top: 1px solid rgba($main-light, 0.4);
+      }
+    }
+
+    &-price {
+      display: block;
+      text-align: center;
+      font-size: 45px;
+
+      &-small {
+        font-size: 16px;
+        color: $main-theme-color;
+      }
+      span {
+        display: block;
+      }
+    }
+
+    .btn {
+      margin-bottom: $margin-medium;
+    }
+  }
+}

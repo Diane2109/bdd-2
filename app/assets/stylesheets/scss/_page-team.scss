@@ -1,0 +1,25 @@
+.team {
+  &__item {
+    @include theme-box-shadow;
+    padding: 80px $main-space * 3 0 $main-space * 3;
+    border-radius: $main-border-radius;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    &-role {
+      color: $main-theme-color;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: $font-x-small;
+      display: inline-block;
+    }
+    &-contact {
+      border-top: 1px solid $main-medium-gray;
+    }
+    img {
+      margin-top: -160px;
+    }
+    .btn {
+      text-decoration: none;
+    }
+  }
+}

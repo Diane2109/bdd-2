@@ -1,0 +1,18 @@
+.card {
+  border: $card-border;
+  border-bottom: $card-border-bottom !important;
+  background: $card-bg;
+  box-shadow: $card-shadow;
+  &-content {
+    background: $card-bg;
+    border: 1px solid rgba($main-light, 0.1);
+  }
+
+  &-header {
+    background: $card-header-bg;
+    border-bottom: $card-header-border-bottom;
+  }
+  &-footer {
+    background: $card-footer-bg;
+  }
+}

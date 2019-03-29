@@ -1,0 +1,13 @@
+.modal {
+  &-content {
+    background: $card-bg;
+    border: 1px solid rgba($main-light, 0.1);
+  }
+
+  &-header {
+    border-bottom: 1px solid rgba($main-light, 0.1);
+  }
+  &-footer {
+    border-top: 1px solid rgba($main-light, 0.1);
+  }
+}

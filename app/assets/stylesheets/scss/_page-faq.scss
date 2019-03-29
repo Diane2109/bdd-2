@@ -1,0 +1,6 @@
+.faq {
+  padding: $main-space * 8 0 $main-space * 8;
+  @include smartphone {
+    padding-top: $main-space * 4;
+  }
+}

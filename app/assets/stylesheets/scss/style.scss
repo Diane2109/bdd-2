@@ -1,0 +1,35 @@
+@import "./bootstrap/bootstrap.scss";
+
+@import "mixins";
+@import "variables";
+@import "responsive";
+@import "icons";
+
+@import "typography.scss";
+@import "navbar.scss";
+@import "nav.scss";
+@import "dropdown.scss";
+@import "button";
+@import "tables";
+@import "forms";
+@import "card";
+@import "modal";
+
+// PLUGINS
+@import "swiper";
+@import "animate";
+
+// PAGES / SECTIONS
+@import "page-base";
+@import "page-home";
+@import "page-how-it-works";
+@import "page_features";
+@import "page-pricing";
+@import "page-promo";
+@import "page-faq";
+@import "lead-form";
+@import "page-team";
+@import "countdown";
+@import "testimonial";
+@import "timeline";
+@import "footer";

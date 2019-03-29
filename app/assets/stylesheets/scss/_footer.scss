@@ -1,0 +1,25 @@
+.footer {
+  background: $main-theme-color;
+  padding: $main-space * 8 0;
+  color: $main-light;
+  position: relative;
+  overflow: visible;
+
+  &__image {
+    position: absolute;
+    left: -100px;
+    top: -200px;
+  }
+  a {
+    color: rgba($main-light, 0.85);
+    margin-bottom: 6px;
+    display: inline-block;
+  }
+  &__social {
+    margin-bottom: $main-space * 3;
+    font-size: 24px;
+    a {
+      padding: 20px;
+    }
+  }
+}

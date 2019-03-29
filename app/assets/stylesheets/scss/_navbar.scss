@@ -1,0 +1,25 @@
+.navbar {
+  padding: $main-space 0;
+  border-bottom: $main-border;
+  background: $main-light;
+  &-brand {
+    display: flex;
+    flex-direction: column;
+    img {
+      // logo size
+      width: 140px;
+      height: auto;
+    }
+  }
+  &-nav {
+    margin: 0 auto;
+  }
+  .form-inline {
+    background: none;
+    padding: 0;
+    box-shadow: none;
+  }
+  .form-control {
+    margin-bottom: 0;
+  }
+}

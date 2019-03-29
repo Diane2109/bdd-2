@@ -1,0 +1,10 @@
+.lead-form {
+  position: relative;
+  overflow: visible;
+  &__bg {
+    position: absolute;
+    top: -340px;
+    right: -100px;
+    z-index: -1;
+  }
+}

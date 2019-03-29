@@ -1,0 +1,24 @@
+.promo {
+  background: url("../../assets/img/bg2.jpg");
+  background-size: cover;
+  background-position: top right;
+  margin-bottom: $main-space * 8;
+  padding: $main-space * 8 0;
+  text-align: center;
+  color: $main-light;
+  padding-bottom: $main-space * 14;
+  position: relative;
+  z-index: 0;
+  @include smartphone {
+    padding-top: 0;
+    background-position: -500px;
+  }
+  .jumbotron {
+    background: none;
+  }
+  i {
+    display: inline-block;
+    font-size: 64px;
+    margin-bottom: $main-space * 2;
+  }
+}
