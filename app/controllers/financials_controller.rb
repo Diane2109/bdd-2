@@ -14,16 +14,18 @@ class FinancialsController < ApplicationController
   def new
     require_user
     @financial = Financial.new
-    $companyid = params[:id]
+    $company_id_form = params[:id]
+    @company = Company.find($company_id_form.to_i)
   end
 
   def create
     require_user
-    params[:company_id] = $companyid
+    params[:financial][:company_id] = $company_id_form
     @financial = Financial.new(financial_params)
     if @financial.save
-      flash[:success] = "#{@financial.company_year} a été ajouté.e."
-      redirect_to users_path
+      flash[:notice] = "It worked!"
+      @company = Company.find($company_id_form.to_i)
+      redirect_to company_path(@company)
     else
      redirect_to companies_path
     end
@@ -32,15 +34,18 @@ class FinancialsController < ApplicationController
   def edit
     require_user
     @financial = Financial.find(params[:id])
-    @company = Company.find(params[:id])
+    $company_id_form = @financial.company_id
+    @company = Company.find($company_id_form.to_i)
   end
 
   def update
     require_user
     @financial = Financial.find(params[:id])
+    params[:financial][:company_id] = $company_id_form
     if @financial.update(financial_params)
      flash[:success] = "Nous avons bien mis à jour les informations concernant #{@financial.company_year}."
-     redirect_to financials_path
+     @company = Company.find($company_id_form.to_i)
+     redirect_to company_path(@company)
     else
      render 'edit'
     end

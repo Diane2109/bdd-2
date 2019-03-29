@@ -12,6 +12,7 @@ class Company < ApplicationRecord
 
   def self.to_csv
     attributes = %w{id company_name company_industry company_valuation}
+    puts attributes
 
     CSV.generate(headers: true) do |csv|
       csv << attributes

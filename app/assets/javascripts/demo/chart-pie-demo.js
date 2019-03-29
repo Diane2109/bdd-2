@@ -4,12 +4,13 @@ Chart.defaults.global.defaultFontColor = '#858796';
 
 // Pie Chart Example
 var ctx = document.getElementById("myPieChart");
+var company_industry_produits_construction 
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Direct", "Referral", "Social"],
+    labels: ["Produits de construction", "Produits d'isolation", "Adhésifs", "Verres", "Contrôle de la vibration", "Autre"],
     datasets: [{
-      data: [55, 30, 15],
+      data: [<%=$company_industry_produits_construction%>, 30, 15],
       backgroundColor: ['#10316b', '#1cc88a', '#36b9cc'],
       hoverBackgroundColor: ['#1648a0', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",

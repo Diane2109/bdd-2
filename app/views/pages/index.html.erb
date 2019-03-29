@@ -1,320 +1,780 @@
 
 
-      <!-- Begin Page Content -->
-      <div class="container-fluid">
+    <meta name="description" content="" />
+    <meta content="" name="description" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="width=device-width" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <!-- <link rel="manifest" href="site.webmanifest" /> -->
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="stylesheet" href="assets/scss/style.scss" />
+  </head>
 
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h1 class="h1 mb-0 text-gray-800">Dashboard</h1>
-          <a href="/companies.csv" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-        </div>
-
-        <!-- Content Row -->
-        <div class="row">
-
-          <!-- Earnings (Monthly) Card Example -->
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Nombre de fiches</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800"><%= @companies.all.count %></div>
-                  </div>
-                  <div class="col-auto">
-                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Earnings (Monthly) Card Example -->
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Nombre d'utilisateurs</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800"><%= @users.all.count %></div>
-                  </div>
-                  <div class="col-auto">
-                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Earnings (Monthly) Card Example -->
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-info shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Pourcentage de users actifs</div>
-                    <div class="row no-gutters align-items-center">
-                      <div class="col-auto">
-                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                      </div>
-                      <div class="col">
-                        <div class="progress progress-sm mr-2">
-                          <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-auto">
-                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pending Requests Card Example -->
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Nombre de closings</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                  </div>
-                  <div class="col-auto">
-                    <i class="fas fa-comments fa-2x text-gray-300"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Content Row -->
-
-        <div class="row">
-
-          <!-- Area Chart -->
-          <div class="col-xl-8 col-lg-7">
-            <div class="card shadow mb-4">
-              <!-- Card Header - Dropdown -->
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Overview du nombre de targets</h6>
-                <div class="dropdown no-arrow">
-                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Dropdown Header:</div>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div>
-              </div>
-              <!-- Card Body -->
-              <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="myAreaChart"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pie Chart -->
-          <div class="col-xl-4 col-lg-5">
-            <div class="card shadow mb-4">
-              <!-- Card Header - Dropdown -->
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Industries des targets</h6>
-                <div class="dropdown no-arrow">
-                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Dropdown Header:</div>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div>
-              </div>
-              <!-- Card Body -->
-              <div class="card-body">
-                <div class="chart-pie pt-4 pb-2">
-                  <canvas id="myPieChart"></canvas>
-                </div>
-                <div class="mt-4 text-center small">
-                  <span class="mr-2">
-                    <i class="fas fa-circle text-primary"></i> Construction
-                  </span>
-                  <span class="mr-2">
-                    <i class="fas fa-circle text-success"></i> Automotive
-                  </span>
-                  <span class="mr-2">
-                    <i class="fas fa-circle text-info"></i> Aerospace
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Content Row -->
-        <div class="row">
-
-          <!-- Content Column -->
-          <div class="col-lg-6 mb-4">
-
-            <!-- Project Card Example -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-              </div>
-              <div class="card-body">
-                <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                <div class="progress mb-4">
-                  <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                <div class="progress mb-4">
-                  <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                <div class="progress mb-4">
-                  <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                <div class="progress mb-4">
-                  <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                <div class="progress">
-                  <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Color System -->
-            <div class="row">
-              <div class="col-lg-6 mb-4">
-                <div class="card bg-primary text-white shadow">
-                  <div class="card-body">
-                    Primary
-                    <div class="text-white-50 small">#10316b</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 mb-4">
-                <div class="card bg-success text-white shadow">
-                  <div class="card-body">
-                    Success
-                    <div class="text-white-50 small">#1cc88a</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 mb-4">
-                <div class="card bg-info text-white shadow">
-                  <div class="card-body">
-                    Info
-                    <div class="text-white-50 small">#36b9cc</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 mb-4">
-                <div class="card bg-warning text-white shadow">
-                  <div class="card-body">
-                    Warning
-                    <div class="text-white-50 small">#f6c23e</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 mb-4">
-                <div class="card bg-danger text-white shadow">
-                  <div class="card-body">
-                    Danger
-                    <div class="text-white-50 small">#e74a3b</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 mb-4">
-                <div class="card bg-secondary text-white shadow">
-                  <div class="card-body">
-                    Secondary
-                    <div class="text-white-50 small">#858796</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6 mb-4">
-
-            <!-- Illustrations -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-              </div>
-              <div class="card-body">
-                <div class="text-center">
-                  <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
-                </div>
-                <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
-                <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
-              </div>
-            </div>
-
-            <!-- Approach -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-              </div>
-              <div class="card-body">
-                <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-      <!-- /.container-fluid -->
-
-    </div>
-    <!-- End of Main Content -->
-
-
-
-  </div>
-  <!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-  <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
+  <body>
+    <main class="main">
+    <nav class="navbar fixed-top navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="assets/img/logo.png" alt="logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="ti-menu"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li><a class="nav-link active" href="#about">Comment ça marche ?</a></li>
+            <li><a class="nav-link" href="#features">Avantages</a></li>
+            <li><a class="nav-link" href="#plans">Tarifs</a></li>
+            <li><a class="nav-link" href="#team">Nos clients</a></li>
+            <li><a class="nav-link" href="#faq">Faq</a></li>
+          </ul>
+          <button class="btn btn-primary btn-sm">TESTER LA SOLUTION</button>
+          <li><a class="nav-link underline" href="/login">Connexion</a></li>
+        </div>
       </div>
-      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="login.html">Logout</a>
+    </nav>
+
+    <section class="home__hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-7  home__hero-image-section">
+            <img
+              class="home__hero-img wow fadeInLeft"
+              src="assets/img/iPhoneXs.png"
+              width="400"
+            />
+            <img
+              class="home__hero-bg wow fadeInRight"
+              src="assets/img/bg.png"
+              width="800"
+            />
+          </div>
+          <div
+            class="col-12 col-md-5  home__hero-text-section  align-self-end wow fadeInUp"
+            data-wow-delay="0.2s">
+            <h1>Révolutionnez le partage d'informations</h1>
+            <p class="mt-4 mb-4">
+              Epitom est une plateforme collaborative qui permet d'échanger
+              des informations rapidement en interne comme en externe.
+              Les données sont sécurisées, les prises d'informations facilitées
+              et l'équipe mieux informée.
+            </p>
+            <button class="btn btn-secondary btn-lg">Premiers pas</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
+
+    <section class="how-it-works" id="about">
+      <div class="container">
+        <div class="row">
+          <!-- SINGLE ITEM -->
+          <div
+            data-wow-delay="0.6s"
+            class="wow fadeInRight how-it-works__item col-12 col-md-6 col-lg-3 mb-3">
+            <div
+              class="how-it-works__item-bg d-flex flex-column align-items-center text-center">
+              <span class="how-it-works__item-number">1</span>
+              <i class="ti-gallery"> </i>
+              <h4 class="mt-4 mb-4">Gain de temps des équipes</h4>
+
+              <p>
+                Transparence de l'information au sein des équipes
+                et avec l'environnement extérieur.
+              </p>
+            </div>
+          </div>
+          <!-- / SINGLE ITEM -->
+          <!-- SINGLE ITEM -->
+          <div
+            data-wow-delay="0.4s"
+            class="wow fadeInRight how-it-works__item col-12 col-md-6 col-lg-3 mb-3">
+            <div
+              class="how-it-works__item-bg d-flex flex-column align-items-center text-center">
+              <span class="how-it-works__item-number">2</span>
+              <i class="ti-video-clapper"> </i>
+              <h4 class="mt-4 mb-4">Aide à la prise de décision</h4>
+              <p>
+                Facilité de recherche et de filtrage permettant une
+                compréhension rapide et complète des informations.
+              </p>
+            </div>
+          </div>
+          <!-- / SINGLE ITEM -->
+          <!-- SINGLE ITEM -->
+          <div
+            data-wow-delay="0.2s"
+            class="wow fadeInRight how-it-works__item col-12 col-md-6 col-lg-3 mb-3">
+            <div
+              data-wow-delay="0.4s"
+              class="how-it-works__item-bg d-flex flex-column align-items-center text-center">
+              <span class="how-it-works__item-number">3</span>
+              <i class="ti-layout-accordion-list"> </i>
+              <h4 class="mt-4 mb-4">Intégration Excel et Ppt</h4>
+              <p>
+                Divisez le temps que vous passez sur un dossier par 3
+                grâce aux intégrations et aux exports simples.
+              </p>
+            </div>
+          </div>
+          <!-- / SINGLE ITEM -->
+          <!-- SINGLE ITEM -->
+          <div
+            class="wow fadeInRight how-it-works__item col-12 col-md-6 col-lg-3 mb-3"
+          >
+            <div
+              class="how-it-works__item-bg d-flex flex-column align-items-center text-center"
+            >
+              <span class="how-it-works__item-number">4</span>
+              <i class="ti-bell"> </i>
+              <h4 class="mt-4 mb-4">Sécurité avant tout</h4>
+
+              <p>
+                Vos données sont protégées et l'intégration SSO avec vos
+                systèmes de connexion est possible.
+              </p>
+            </div>
+          </div>
+          <!-- / SINGLE ITEM -->
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <img
+        src="assets/img/bg.png"
+        class="features__logo wow fadeInLeft"
+        alt="background element"
+      />
+      <div class="container">
+        <div class="row features__item">
+          <div
+            class=" wow fadeInRight col-lg-4 col-md-8 col-sm-12 d-flex flex-column align-self-center"
+          >
+            <span class="info-text">libero eu tempus</span>
+            <h3 class="mt-4 mb-4">Dream up <br />a dare challenge</h3>
+            <p>
+              Donec justo leo, efficitur sit amet pulvinar nec, sodales
+              hendrerit diam. Aenean vel rhoncus neque. Nam vel mauris massa.
+              Nullam ut augue eget felis aliquam porta. Praesent sit amet
+              dignissim quam, non venenatis arcu. Pellentesque vehicula id
+              libero eu tempus. Sed et vestibulum magna. Phasellus semper
+              egestas nunc non scelerisque. Vivamus viverra pharetra orci tempor
+              aliquet.
+            </p>
+            <ul class="features__item-list">
+              <li>
+                <i class="ti-link"> </i>
+                <h4>Awesome feature</h4>
+              </li>
+              <li>
+                <i class="ti-ruler-pencil"> </i>
+
+                <h4>Awesome feature</h4>
+              </li>
+              <li>
+                <i class="ti-blackboard"></i>
+                <h4>Awesome feature</h4>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="promo">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 ">
+            <div class="jumbotron">
+              <i class="ti-video-camera wow fadeInDown"></i>
+              <h1 class="mb-5 wow fadeInUp" data-wow-delay="0.3s">
+                Dream up <br />
+                a dare challenge
+              </h1>
+              <p class="lead mb-5 wow fadeInDown" data-wow-delay="0.5s">
+                This is a simple hero unit, <br />a simple jumbotron-style
+                component <br />
+                for calling extra attention.
+              </p>
+
+              <p class="lead">
+                <a
+                  class="btn btn-primary btn-lg wow fadeInUp"
+                  href="#"
+                  role="button"
+                  >Learn more</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pricing section" id="plans">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-5  wow fadeIn" data-wow-delay="0.3s">
+            <h2 class="text-center">Nos tarifs</h2>
+            <p class="text-center info-text">4 offres pour 4 types d'usage</p>
+          </div>
+
+          <div class="col-md-6 col-lg-3 wow fadeInLeft">
+            <div class="pricing-box shadow text-center mb-3">
+              <span class="icon ti-announcement"></span>
+              <h3>Offre GRATUITE</h3>
+              <span class="pricing-box-price">
+                € 0.00 <span class="pricing-box-price-small">par mois</span>
+              </span>
+              <ul>
+                <li>Usage personnel</li>
+                <li>Accès à une base de données</li>
+                <li>Uniquement 3 utilisateurs peuvent la modifier</li>
+                <li>3 email address</li>
+                <li>free hosting</li>
+              </ul>
+              <a href="#" class="btn btn-margin btn-default"
+                >select <span class="ti-arrow-right"></span
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 wow fadeInLeft">
+            <div class="pricing-box shadow text-center mb-3">
+              <span class="icon ti-announcement"></span>
+              <h3>Offre basique</h3>
+              <span class="pricing-box-price">
+                € 0.00 <span class="pricing-box-price-small">par mois</span>
+              </span>
+              <ul>
+                <li>Usage personnel</li>
+                <li>Accès à une base de données</li>
+                <li>Uniquement 3 utilisateurs peuvent la modifier</li>
+                <li>3 email address</li>
+                <li>free hosting</li>
+              </ul>
+              <a href="#" class="btn btn-margin btn-default">select <span class="ti-arrow-right"></span></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div
+              class="pricing-box pricing-box-featured shadow text-center wow fadeInUp mb-3">
+              <span class="icon ti-announcement"></span>
+              <h3>Offre start-up</h3>
+              <span class="pricing-box-price">
+                € 0.00 <span class="pricing-box-price-small">par mois</span>
+              </span>
+              <ul>
+                <li>Usage personnel</li>
+                <li>Accès à une base de données</li>
+                <li>Uniquement 3 utilisateurs peuvent la modifier</li>
+                <li>3 email address</li>
+                <li>free hosting</li>
+              </ul>
+              <a href="#" class="btn btn-margin btn-default"
+                >select <span class="ti-arrow-right"></span
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 wow fadeInRight">
+            <div class="pricing-box shadow text-center mb-3">
+              <span class="icon ti-announcement"></span>
+              <h3>Offre entreprise</h3>
+              <span class="pricing-box-price">
+                € 0.00 <span class="pricing-box-price-small">par mois</span>
+              </span>
+              <ul>
+                <li>Usage personnel</li>
+                <li>Accès à une base de données</li>
+                <li>Uniquement 3 utilisateurs peuvent la modifier</li>
+                <li>3 email address</li>
+                <li>free hosting</li>
+              </ul>
+              <a href="#" class="btn btn-margin btn-default"
+                >select <span class="ti-arrow-right"></span
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="lead-form">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-5  wow fadeIn" data-wow-delay="0.3s">
+            <h2 class="text-center">request a demo</h2>
+            <p class="text-center info-text text-light">
+              Lorem ipsum dolor sit amet
+            </p>
+          </div>
+
+          <div class="col-12 col-md-8 offset-md-2">
+            <!-- CONTACT FORM -->
+
+            <form class=" wow fadeInLeft">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="contact-email"
+                  name="contact-email"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="mobile"
+                  name="mobile"
+                  placeholder="Mobile Number"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="subject"
+                  name="subject"
+                  placeholder="Organization name"
+                  required
+                />
+              </div>
+              <button type="button" class="btn btn-secondary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <img class="lead-form__bg wow fadeInRight" src="assets/img/bg.png" />
+    </section>
+
+    <section class="team" id="team">
+      <div class="container">
+        <row>
+          <div class="col-md-12 mb-5 mt-5  wow fadeIn" data-wow-delay="0.3s">
+            <h2 class="text-center">Tous nos clients sont à l'honneur</h2>
+            <p class="text-center info-text text-light">
+              Vous êtes en bonne compagnie
+            </p>
+          </div>
+        </row>
+
+        <div class="row">
+          <!-- SINGLE ITEM -->
+          <div class="col-12 col-md-4">
+            <div class="text-center team__item">
+              <img
+                class="u-box-shadow-lg img-fluid img-thumbnail rounded-circle mb-4"
+                src="assets/img/user-01.jpg"
+                width="180"
+              />
+              <h4>C2i</h4>
+              <span class="team__item-role mb-4">Promoteur immobilier</span>
+              <p class="pb-32">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Numquam harum voluptatibus dignissimos. Repellendus quibusdam
+                facilis eum natus porro. Debitis, earum nisi labore eligendi
+                neque exercitationem vel similique expedita aliquam tempore!
+              </p>
+              <div class="team__item-contact row mt-4">
+                <button
+                  class="btn btn-link btn-block  btn-lg col-6"
+                  data-toggle="tooltip"
+                  data-original-title="audio call">
+                  <span class="ti-mobile"></span>
+                </button>
+                <button
+                  class="btn btn-link btn-lg btn-block col-6"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  data-original-title="video call">
+                  <span class="ti-video-camera"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- / SINGLE ITEM -->
+
+          <!-- SINGLE ITEM -->
+          <div class="col-12 col-md-4">
+            <div class="text-center team__item">
+              <img
+                class="u-box-shadow-lg img-fluid img-thumbnail rounded-circle mb-4"
+                src="assets/img/user-02.jpg"
+                width="180"
+              />
+              <h4>L.E.R.</h4>
+              <span class="team__item-role mb-4">Fonds d'investissement</span>
+              <p class="pb-32">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Numquam harum voluptatibus dignissimos. Repellendus quibusdam
+                facilis eum natus porro. Debitis, earum nisi labore eligendi
+                neque exercitationem vel similique expedita aliquam tempore!
+              </p>
+              <div class="team__item-contact row mt-4">
+                <button
+                  class="btn btn-link btn-block  btn-lg col-6"
+                  data-toggle="tooltip"
+                  data-original-title="audio call"
+                >
+                  <span class="ti-mobile"></span>
+                </button>
+                <button
+                  class="btn btn-link btn-lg btn-block col-6"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  data-original-title="video call">
+                  <span class="ti-video-camera"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- / SINGLE ITEM -->
+          <!-- SINGLE ITEM -->
+          <div class="col-12 col-md-4">
+            <div class="text-center team__item">
+              <img
+                class="u-box-shadow-lg img-fluid img-thumbnail rounded-circle mb-4"
+                src="assets/img/user-03.jpg"
+                width="180"
+              />
+              <h4>Saint-Gobain</h4>
+              <span class="team__item-role mb-4">Matériaux et habitat</span>
+              <p class="pb-32">
+                "Au début, ce n'était que nos équipes de finance qui utilisaient l'outil.
+                 Lorsque nous nous sommes aperçus de la puissance de partage,
+                 nous avons décidé de l'implanter en marketing, en stratégie et en opérationnel."
+              </p>
+              <div class="team__item-contact row mt-4">
+                <button
+                  class="btn btn-link btn-block  btn-lg col-6"
+                  data-toggle="tooltip"
+                  data-original-title="audio call"
+                >
+                  <span class="ti-mobile"></span>
+                </button>
+                <button
+                  class="btn btn-link btn-lg btn-block col-6"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  data-original-title="video call"
+                >
+                  <span class="ti-video-camera"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- / SINGLE ITEM -->
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="container">
+        <row>
+          <div class="col-md-12 mb-5  wow fadeIn" data-wow-delay="0.3s">
+            <h2 class="text-center">frequently asked questions</h2>
+            <p class="text-center info-text">Lorem ipsum dolor sit amet</p>
+          </div>
+        </row>
+        <div class="row">
+          <div class="col-12">
+            <div class="accordion" id="accordionExample">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button
+                      class="pl-0 btn btn-link btn-block text-left"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      Collapsible Group Item #1
+                    </button>
+                  </h5>
+                </div>
+
+                <div
+                  id="collapseOne"
+                  class="collapse show"
+                  aria-labelledby="headingOne"
+                  data-parent="#accordionExample"
+                >
+                  <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life
+                    accusamus terry richardson ad squid. 3 wolf moon officia
+                    aute, non cupidatat skateboard dolor brunch. Food truck
+                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                    sunt aliqua put a bird on it squid single-origin coffee
+                    nulla assumenda shoreditch et. Nihil anim keffiyeh
+                    helvetica, craft beer labore wes anderson cred nesciunt
+                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                    Leggings occaecat craft beer farm-to-table, raw denim
+                    aesthetic synth nesciunt you probably haven't heard of them
+                    accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button
+                      class="pl-0 btn btn-link btn-block text-left"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      Collapsible Group Item #2
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseTwo"
+                  class="collapse"
+                  aria-labelledby="headingTwo"
+                  data-parent="#accordionExample"
+                >
+                  <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life
+                    accusamus terry richardson ad squid. 3 wolf moon officia
+                    aute, non cupidatat skateboard dolor brunch. Food truck
+                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                    sunt aliqua put a bird on it squid single-origin coffee
+                    nulla assumenda shoreditch et. Nihil anim keffiyeh
+                    helvetica, craft beer labore wes anderson cred nesciunt
+                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                    Leggings occaecat craft beer farm-to-table, raw denim
+                    aesthetic synth nesciunt you probably haven't heard of them
+                    accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button
+                      class="pl-0 btn btn-link btn-block text-left"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseThree"
+                      aria-expanded="false"
+                      aria-controls="collapseThree"
+                    >
+                      Collapsible Group Item #3
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseThree"
+                  class="collapse"
+                  aria-labelledby="headingThree"
+                  data-parent="#accordionExample"
+                >
+                  <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life
+                    accusamus terry richardson ad squid. 3 wolf moon officia
+                    aute, non cupidatat skateboard dolor brunch. Food truck
+                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                    sunt aliqua put a bird on it squid single-origin coffee
+                    nulla assumenda shoreditch et. Nihil anim keffiyeh
+                    helvetica, craft beer labore wes anderson cred nesciunt
+                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                    Leggings occaecat craft beer farm-to-table, raw denim
+                    aesthetic synth nesciunt you probably haven't heard of them
+                    accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingFour">
+                  <h5 class="mb-0">
+                    <button
+                      class="pl-0 btn btn-link btn-block text-left"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseFour"
+                      aria-expanded="false"
+                      aria-controls="collapseFour"
+                    >
+                      Collapsible Group Item #3
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseFour"
+                  class="collapse"
+                  aria-labelledby="headingFour"
+                  data-parent="#accordionExample"
+                >
+                  <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life
+                    accusamus terry richardson ad squid. 3 wolf moon officia
+                    aute, non cupidatat skateboard dolor brunch. Food truck
+                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                    sunt aliqua put a bird on it squid single-origin coffee
+                    nulla assumenda shoreditch et. Nihil anim keffiyeh
+                    helvetica, craft beer labore wes anderson cred nesciunt
+                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                    Leggings occaecat craft beer farm-to-table, raw denim
+                    aesthetic synth nesciunt you probably haven't heard of them
+                    accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <footer class="footer">
+        <img class="footer__image" src="assets/img/bg.png" alt="image background" />
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center mb-5">
+              <img src="assets/img/logo-white.png" width="200" alt="landingo sign" />
+            </div>
+            <div class="col-12">
+              <ul class="footer__social d-flex justify-content-center">
+                <li>
+                  <a href="#"><span class="ti-facebook"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="ti-twitter"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="ti-instagram"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="ti-google"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="ti-pinterest"></span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-3 mb-5">
+              <h5 class="mb-4">Some links</h5>
+              <ul>
+                <li><a href="#"> Anim pariatur</a></li>
+                <li><a href="#"> cliche reprehenderit</a></li>
+                <li><a href="#"> high life accusamus </a></li>
+                <li><a href="#"> terry richardson </a></li>
+                <li><a href="#"> Brunch 3 wolf</a></li>
+                <li><a href="#"> moon tempor sunt</a></li>
+                <li><a href="#"> aliqua put a bird </a></li>
+              </ul>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3 mb-5">
+              <h5 class="mb-4">Some links</h5>
+              <ul>
+                <li><a href="#"> Anim pariatur</a></li>
+                <li><a href="#"> cliche reprehenderit</a></li>
+                <li><a href="#"> high life accusamus </a></li>
+                <li><a href="#"> terry richardson </a></li>
+                <li><a href="#"> Brunch 3 wolf</a></li>
+                <li><a href="#"> moon tempor sunt</a></li>
+                <li><a href="#"> aliqua put a bird </a></li>
+              </ul>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-3 mb-5">
+              <h5 class="mb-4">Some links</h5>
+              <ul>
+                <li><a href="#"> Anim pariatur</a></li>
+                <li><a href="#"> cliche reprehenderit</a></li>
+                <li><a href="#"> high life accusamus </a></li>
+                <li><a href="#"> terry richardson </a></li>
+                <li><a href="#"> Brunch 3 wolf</a></li>
+                <li><a href="#"> moon tempor sunt</a></li>
+                <li><a href="#"> aliqua put a bird </a></li>
+              </ul>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-3 mb-5">
+              <div class="row">
+                <div class="col-12 ">
+                  <h5 class="mb-4">Opening Hours</h5>
+                  <p class="contact-small-text">
+                    <span class="ti-alarm-clock"></span> Mon - Tue
+                    <span class="float-right"> Closed</span>
+                  </p>
+                  <p class="contact-small-text">
+                    <span class="ti-alarm-clock"></span> Wed - Thu
+                    <span class="float-right">6:00 - 10:00 Pm</span>
+                  </p>
+                  <p class="contact-small-text">
+                    <span class="ti-alarm-clock"></span> Fri - Sun
+                    <span class="float-right"> 5:30 - 10:00 Pm</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js_accueil/wow.js"></script>
+    <script src="assets/js_accueil/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+      window.ga = function() {
+        ga.q.push(arguments);
+      };
+      ga.q = [];
+      ga.l = +new Date();
+      ga("create", "UA-XXXXX-Y", "auto");
+      ga("send", "pageview");
+    </script>
+    <script
+      src="https://www.google-analytics.com/analytics.js"
+      async
+      defer
+    ></script>

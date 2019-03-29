@@ -22,7 +22,8 @@
                     <th>Prénom</th>
                     <th>Nom</th>
                     <th>Email</th>
-                    <th>Dernière connexion</th>
+                    <th>Administrateur</th>
+                    <th>Date d'inscription</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -32,7 +33,12 @@
                     <td><%= f.user_first_name %></td>
                     <td><%= f.user_last_name %></td>
                     <td><%= f.user_email %></td>
-                    <td>Ici dernière connexion</td>
+                    <% if f.user_admin? == true %>
+                    <td>Admin</td>
+                    <% else %>
+                    <td>Non</td>
+                    <% end %>
+                    <td><%= Date.today %></td>
                     <td>
                       <%= link_to "Modifier", edit_user_path(f), class: "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" %>
                       <%= link_to "Supprimer", delete_user_path(f), method: :get, data: { confirm: "Voulez-vous vraiment supprimer cet utilisateur ?"}, class: "d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" %>

@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
   end
 
   def new
+    current_user
+    if @current_user == nil
+      else redirect_to dashboard_path
+    end
   end
 
   def create
@@ -20,6 +24,6 @@ class SessionsController < ApplicationController
    def destroy
      session[:user_id] = nil
      flash[:success] = "Vous vous êtes déconnecté.e."
-     redirect_to root_path
+     redirect_to '/'
    end
 end
